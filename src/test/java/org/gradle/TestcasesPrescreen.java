@@ -74,7 +74,7 @@ public class TestcasesPrescreen {
 		do{
 			bFound = gPage.findLinkViaSearchResults(linkToFind);
 			pageNumber++;
-			if (pageNumber != pagesToSearch + 1){gPage.goToNextSearchResultPage(pageNumber);}	
+			if (pageNumber != pagesToSearch + 1 && !bFound){gPage.goToNextSearchResultPage(pageNumber);}	
 		}while(!bFound && pageNumber <= pagesToSearch);
 		Assert.assertTrue(bFound,"[FAIL] Verify that there is expected domain (“testautomationday.com”) on search results  pages (page: 1-5)");
 	}

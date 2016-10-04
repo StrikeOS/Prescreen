@@ -52,8 +52,9 @@ public class GoogleSearchPage {
     	List<WebElement> ElementCollection = (List<WebElement>) Browser.getDriver().findElements(allSearchResultLinksLocator);
     	boolean bFound = false;
     	for (WebElement link : ElementCollection){
-    		//Log.info("link -> " + link.getText());
-    		if (link.getText().equals(linkToFind)||link.getText().equals(linkToFind+"\\")){
+    		String currentLink = link.getText();
+    		if (org.apache.commons.lang3.StringUtils.containsIgnoreCase(currentLink,linkToFind)){
+    			Log.info("Expected Link: " + linkToFind + " Found link: " + currentLink);    			
     			bFound = true;
     			break;
     		}
